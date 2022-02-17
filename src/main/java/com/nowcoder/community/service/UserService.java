@@ -150,4 +150,17 @@ public class UserService implements CommunityConstant {
 
 		loginTicketMapper.updateStatus(ticket, 1);
 	}
+
+	public LoginTicket findLoginTicket(String ticket) {
+		return loginTicketMapper.selectByTicket(ticket);
+//		String redisKey = RedisKeyUtil.getTicketKey(ticket);
+//		return (LoginTicket) redisTemplate.opsForValue().get(redisKey);
+	}
+
+	public int updateHeader(int userId, String headerUrl) {
+		return userMapper.updateHeader(userId, headerUrl);
+//		int rows = userMapper.updateHeader(userId, headerUrl);
+//		clearCache(userId);
+//		return rows;
+	}
 }
